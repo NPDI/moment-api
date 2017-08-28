@@ -29,6 +29,12 @@ function default_1(sequelize, DataTypes) {
                 notEmpty: true,
             },
         },
+    }, {
+        classMethods: {
+            associate: function (models) {
+                User.hasMany(models.Image, { as: 'images' });
+            },
+        },
     });
     User.beforeCreate(function (user) {
         return hashPassword(user);

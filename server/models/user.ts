@@ -29,6 +29,13 @@ export default function(sequelize, DataTypes) {
         notEmpty: true,
       },
     },
+  },
+  {
+    classMethods: {
+      associate: models => {
+        User.hasMany(models.Image, { as: 'images'});
+      },
+    },
   });
 
   User.beforeCreate((user) => {
