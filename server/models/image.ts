@@ -23,5 +23,14 @@ export default function(sequelize, DataTypes) {
     }
   });
 
+  Image.associate = (models) => {
+    Image.belongsTo(models.User, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Image;
 }
