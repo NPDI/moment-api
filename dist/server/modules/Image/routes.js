@@ -19,6 +19,9 @@ var ImageRoutes = (function () {
     ImageRoutes.prototype.destroy = function (req, res) {
         return controller_1.default.deleteImage(req, res);
     };
+    ImageRoutes.prototype.upload = function (req, res) {
+        return controller_1.default.uploadImage(req, res);
+    };
     return ImageRoutes;
 }());
 exports.default = new ImageRoutes();
