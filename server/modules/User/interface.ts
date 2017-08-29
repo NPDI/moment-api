@@ -15,7 +15,7 @@ export interface IUserDetail extends IUser {
 export function createUser({ id, name, email, password }: any): IUser {
   return {
     id, name, email, password,
-  }
+  };
 }
 
 export function createUsers(data: any[]): IUser[] {
