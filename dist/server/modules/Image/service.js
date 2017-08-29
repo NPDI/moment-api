@@ -14,6 +14,17 @@ var Image = (function () {
         })
             .then(interface_1.createImages);
     };
+    Image.prototype.getById = function (id) {
+        return model.Image.findOne({
+            where: { id: id },
+            include: [{
+                    model: model.User,
+                    as: 'User',
+                }],
+            order: ['name'],
+        })
+            .then(interface_1.createImageById);
+    };
     Image.prototype.update = function (id, img) {
         return model.Image.update(img, {
             where: { id: id },

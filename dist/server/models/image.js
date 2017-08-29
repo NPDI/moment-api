@@ -22,6 +22,14 @@ function default_1(sequelize, DataTypes) {
             }
         }
     });
+    Image.associate = function (models) {
+        Image.belongsTo(models.User, {
+            onDelete: "CASCADE",
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
     return Image;
 }
 exports.default = default_1;
