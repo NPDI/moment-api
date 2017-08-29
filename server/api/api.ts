@@ -1,4 +1,5 @@
 import * as bodyParser from 'body-parser';
+import * as cors from 'cors';
 import * as express from 'express';
 import { Application } from 'express';
 import * as morgan from 'morgan';
@@ -20,6 +21,7 @@ class Api {
     this.express.use(morgan('dev'));
     this.express.use(bodyParser.urlencoded({ extended: true }));
     this.express.use(bodyParser.json());
+    this.express.use(cors());
     this.express.use(Handlers.errorHandlerApi);
     this.express.use(Auth.config().initialize());
     this.router(this.express, Auth);
