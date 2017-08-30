@@ -29,24 +29,19 @@ var Routes = (function () {
             .all(auth.config().authenticate())
             .delete(routes_2.default.destroy);
         app
-            .route("/api/image/all")
-            .all(auth.config().authenticate())
+            .route("/api/images/all")
             .get(routes_1.default.index);
         app
-            .route("/api/image/:id")
-            .all(auth.config().authenticate())
+            .route("/api/images/:id")
             .get(routes_1.default.findOne);
         app
-            .route("/api/image/create")
-            .all(auth.config().authenticate())
+            .route("/api/images/create")
             .post(routes_1.default.create);
         app
-            .route("/api/image/:id/update")
-            .all(auth.config().authenticate())
+            .route("/api/images/:id/update")
             .put(routes_1.default.update);
         app
-            .route("/api/image/:id/destroy")
-            .all(auth.config().authenticate())
+            .route("/api/images/:id/destroy")
             .delete(routes_1.default.destroy);
         app
             .route("/upload")

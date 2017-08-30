@@ -9,7 +9,7 @@ var Image = (function () {
         return model.Image.create(img);
     };
     Image.prototype.getAll = function () {
-        return model.User.findAll({
+        return model.Image.findAll({
             order: ['name'],
         })
             .then(interface_1.createImages);

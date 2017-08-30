@@ -7,7 +7,6 @@ var model = require('../../server/models');
 describe('Testes de Integração', function () {
     'use strict';
     var config = require('../../server/config/env/config')();
-    var id;
     var token;
     var userTest = {
         id: 100,
@@ -25,44 +24,12 @@ describe('Testes de Integração', function () {
         model.User.destroy({
             where: {},
         })
-            .then(function () {
-            return model.User.create(userDefault);
-        })
+            .then(function () { return model.User.create(userDefault); })
             .then(function (user) {
             model.User.create(userTest)
                 .then(function () {
                 token = jwt.encode({ id: user.id }, config.secret);
                 done();
-            });
-        });
-    });
-    describe('POST /token', function () {
-        it('Deve receber um JWT', function (done) {
-            var credentials = {
-                email: userDefault.email,
-                password: userDefault.password,
-            };
-            helpers_1.request(helpers_1.app)
-                .post('/token')
-                .send(credentials)
-                .end(function (error, res) {
-                helpers_1.expect(res.status).to.equal(HTTPStatus.OK);
-                helpers_1.expect(res.body.token).to.equal("" + token);
-                done(error);
-            });
-        });
-        it('Não deve gerar Token', function (done) {
-            var credentials = {
-                email: 'dito@email.com',
-                password: 'galocego',
-            };
-            helpers_1.request(helpers_1.app)
-                .post('/token')
-                .send(credentials)
-                .end(function (error, res) {
-                helpers_1.expect(res.status).to.equal(HTTPStatus.UNAUTHORIZED);
-                helpers_1.expect(res.body).to.empty; // tslint:disable-line
-                done(error);
             });
         });
     });
@@ -136,7 +103,7 @@ describe('Testes de Integração', function () {
         });
     });
     describe('DELETE /api/users/:id/destroy', function () {
-        it('Should delete an User', function (done) {
+        it('Deve deletar um Usuário', function (done) {
             helpers_1.request(helpers_1.app)
                 .del("/api/users/" + userTest.id + "/destroy")
                 .set('Content-Type', 'application/json')
