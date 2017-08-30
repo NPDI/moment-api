@@ -17,6 +17,10 @@ class ImageRoutes {
   public destroy(req: Request, res: Response) {
     return ImageController.deleteImage(req, res);
   }
+
+  public upload(req: Request, res: Response) {
+    return ImageController.uploadImage(req, res);
+  }
 }
 
 export default new ImageRoutes();
