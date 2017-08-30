@@ -9,14 +9,13 @@ class Image implements IImage {
   public name: string;
   public description: string;
   public UserId: number;
-  public User: any;
 
   public create(img: any) {
     return model.Image.create(img);
   }
 
   public getAll(): Bluebird<IImage[]> {
-    return model.User.findAll({
+    return model.Image.findAll({
       order: ['name'],
     })
       .then(createImages);

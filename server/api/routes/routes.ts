@@ -30,23 +30,23 @@ class Routes {
       .delete(UserRoutes.destroy);
 
     app
-      .route("/api/image/all")
+      .route("/api/images/all")
       .all(auth.config().authenticate())
       .get(ImageRoutes.index);
     app
-      .route("/api/image/:id")
+      .route("/api/images/:id")
       .all(auth.config().authenticate())
       .get(ImageRoutes.findOne);
     app
-      .route("/api/image/create")
+      .route("/api/images/create")
       .all(auth.config().authenticate())
       .post(ImageRoutes.create);
     app
-      .route("/api/image/:id/update")
+      .route("/api/images/:id/update")
       .all(auth.config().authenticate())
       .put(ImageRoutes.update);
     app
-      .route("/api/image/:id/destroy")
+      .route("/api/images/:id/destroy")
       .all(auth.config().authenticate())
       .delete(ImageRoutes.destroy);
 
