@@ -14,12 +14,9 @@ function default_1(sequelize, DataTypes) {
                 notEmpty: true
             }
         },
-        url: {
+        description: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
+            allowNull: false
         }
     });
     Image.associate = function (models) {

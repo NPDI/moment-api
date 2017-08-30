@@ -52,7 +52,7 @@ class Routes {
 
     app
       .route("/upload")
-      /* .all(auth.config().authenticate()) */
+      .all(auth.config().authenticate())
       .post(ImageRoutes.upload);
 
     app.route("/token").post(TokenRoutes.auth);

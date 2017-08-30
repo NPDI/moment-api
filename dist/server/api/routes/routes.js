@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var multer = require("multer");
 var auth_1 = require("../../modules/auth/auth");
 var routes_1 = require("../../modules/Image/routes");
 var routes_2 = require("../../modules/User/routes");
 var config = require("../../config/env/config")();
 var Routes = (function () {
     function Routes() {
-        this.upload = multer({ dest: config.uploadPath + "/" });
     }
     Routes.prototype.initRoutes = function (app, auth) {
         app
@@ -53,7 +51,7 @@ var Routes = (function () {
         app
             .route("/upload")
             .all(auth.config().authenticate())
-            .post(this.upload.single("myfile"), routes_1.default.upload);
+            .post(routes_1.default.upload);
         app.route("/token").post(auth_1.default.auth);
     };
     return Routes;

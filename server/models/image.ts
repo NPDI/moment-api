@@ -14,12 +14,9 @@ export default function(sequelize, DataTypes) {
         notEmpty: true
       }
     },
-    url: {
+    description: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true
-      }
+      allowNull: false
     }
   });
 

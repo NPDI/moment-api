@@ -7,7 +7,7 @@ const model = require('../../models');
 class Image implements IImage {
   public id: number;
   public name: string;
-  public url: string;
+  public description: string;
   public UserId: number;
   public User: any;
 
@@ -37,7 +37,7 @@ class Image implements IImage {
   public update(id: number, img: any) {
     return model.Image.update(img, {
       where: { id },
-      fields: ['name', 'url'],
+      fields: ['name', 'description'],
     });
   }
 

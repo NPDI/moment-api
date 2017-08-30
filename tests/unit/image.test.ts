@@ -15,8 +15,8 @@ describe("Testes Unitarios do Image Service", () => {
 
   const defaulImage = {
     id: 2,
-    name: "DefaultImage",
-    url: "http://email.com/img/21",
+    name: "DefaultImage.jpg",
+    description: "Nice Image",
     UserId: defaultUser.id,
   };
 
@@ -46,15 +46,15 @@ describe("Testes Unitarios do Image Service", () => {
     it("Deve criar um nova Image", () => {
       const newImage = {
         id: 1,
-        name: "New Image",
-        url: "http://pikachu.com/458",
+        name: "file_01545456.jpg",
+        description: "Hello Map",
         UserId: defaultUser.id,
       };
       return Image.create(newImage).then(data => {
         expect(data.dataValues).to.have.all.keys([
           "id",
           "name",
-          "url",
+          "description",
           "UserId",
           "updatedAt",
           "createdAt"
@@ -86,7 +86,7 @@ describe("Testes Unitarios do Image Service", () => {
   describe("Método getById", () => {
     it("Deve retornar uma Imagem de acordo com o ID informado", () => {
       return Image.getById(defaulImage.id).then(data => {
-        expect(data).to.have.all.keys(["User", "UserId", "id", "name", "url"]);
+        expect(data).to.have.all.keys(["User", "UserId", "id", "name", "description"]);
       });
     });
   });

@@ -28,7 +28,7 @@ var Image = (function () {
     Image.prototype.update = function (id, img) {
         return model.Image.update(img, {
             where: { id: id },
-            fields: ['name', 'url'],
+            fields: ['name', 'description'],
         });
     };
     Image.prototype.delete = function (id) {
