@@ -9,6 +9,7 @@ var handlers_1 = require("./responses/handlers");
 var routes_1 = require("./routes/routes");
 var Api = (function () {
     function Api() {
+        this.config = require("../../server/config/env/config")();
         this.express = express();
         this.middleware();
     }
@@ -16,6 +17,7 @@ var Api = (function () {
         this.express.use(morgan('dev'));
         this.express.use(bodyParser.urlencoded({ extended: true }));
         this.express.use(bodyParser.json());
+        this.express.use(express.static(this.config.uploadPath));
         this.express.use(cors());
         this.express.use(handlers_1.default.errorHandlerApi);
         this.express.use(auth_1.default.config().initialize());
