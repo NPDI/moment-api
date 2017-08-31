@@ -11,11 +11,13 @@ import Handlers from "../../api/responses/handlers";
 import Image from "./service";
 
 class ImageController {
-  public dir = config.uploadPath;
+  public dir: string;
   public storage;
   public upload;
 
   constructor() {
+    this.dir = config.uploadPath;
+
     if (!fs.existsSync(this.dir)) {
       fs.mkdirSync(this.dir);
     }
@@ -36,7 +38,7 @@ class ImageController {
     Image.getAll()
       .then(_.partial(Handlers.onSucess, res))
       .catch(
-        _.partial(Handlers.onError, res, "Erro ao buscar todos os imagem")
+      _.partial(Handlers.onError, res, "Erro ao buscar todos os imagem")
       );
   }
 
