@@ -1,4 +1,6 @@
 /* tslint:disable */
+import * as path from 'path';
+
 module.exports = {
   env: 'development',
   db: 'moment',
@@ -10,5 +12,5 @@ module.exports = {
   pgPort: 5432,
   dbURL: 'postgres://postgres:postgres@localhost:5432/moment',
   secret: 'S3cr3t',
-  uploadPath: 'C:/Users/NPDI-03/Documents/moment'
+  uploadPath: path.join(__dirname, '..', '..', '..', 'upload'),
 };
