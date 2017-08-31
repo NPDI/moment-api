@@ -141,4 +141,18 @@ describe("Testes de Integração", () => {
         });
     });
   });
+
+  describe("POST /upload", () => {
+    it('Deve adicionar um arquivo na pasta', (done) => {
+      request(app)
+        .post("/upload")
+        .set("Content-Type", "multipart/form-data")
+        .attach('myfile', './tests/resources/cat.png')
+        .set("Authorization", `JWT ${token}`)
+        .end((error, res) => {
+          expect(res.status).to.equal(HTTPStatus.OK);
+          done(error);
+        });
+    });
+  });
 });
