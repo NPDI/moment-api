@@ -128,4 +128,17 @@ describe("Testes de Integração", function () {
             });
         });
     });
+    describe("POST /upload", function () {
+        it('Deve adicionar um arquivo na pasta', function (done) {
+            helpers_1.request(helpers_1.app)
+                .post("/upload")
+                .set("Content-Type", "multipart/form-data")
+                .attach('myfile', './tests/resources/cat.png')
+                .set("Authorization", "JWT " + token)
+                .end(function (error, res) {
+                helpers_1.expect(res.status).to.equal(HTTPStatus.OK);
+                done(error);
+            });
+        });
+    });
 });
