@@ -8,6 +8,8 @@ class Image implements IImage {
   public id: number;
   public name: string;
   public description: string;
+  public latitude: string;
+  public longitude: string;
   public UserId: number;
 
   public create(img: any) {
