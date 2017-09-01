@@ -17,6 +17,14 @@ function default_1(sequelize, DataTypes) {
         description: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        longitude: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        latitude: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     });
     Image.associate = function (models) {

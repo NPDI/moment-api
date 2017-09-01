@@ -14,6 +14,8 @@ describe("Testes Unitarios do Image Service", function () {
         id: 2,
         name: "DefaultImage.jpg",
         description: "Nice Image",
+        latitude: "38.7755940",
+        longitude: "-9.1353670",
         UserId: defaultUser.id,
     };
     beforeEach(function (done) {
@@ -43,6 +45,8 @@ describe("Testes Unitarios do Image Service", function () {
                 id: 1,
                 name: "file_01545456.jpg",
                 description: "Hello Map",
+                latitude: "-22.260369",
+                longitude: "-45.702633",
                 UserId: defaultUser.id,
             };
             return service_1.default.create(newImage).then(function (data) {
@@ -50,6 +54,8 @@ describe("Testes Unitarios do Image Service", function () {
                     "id",
                     "name",
                     "description",
+                    "latitude",
+                    "longitude",
                     "UserId",
                     "updatedAt",
                     "createdAt"
@@ -61,7 +67,7 @@ describe("Testes Unitarios do Image Service", function () {
         it("Deve atualizar uma Imagem", function () {
             var updateImage = {
                 name: "Update Image",
-                email: "http://updateemail.com/47"
+                description: " Updated image "
             };
             return service_1.default.update(defaulImage.id, updateImage).then(function (data) {
                 helpers_1.expect(data[0]).to.be.equal(1);
@@ -78,7 +84,7 @@ describe("Testes Unitarios do Image Service", function () {
     describe("Método getById", function () {
         it("Deve retornar uma Imagem de acordo com o ID informado", function () {
             return service_1.default.getById(defaulImage.id).then(function (data) {
-                helpers_1.expect(data).to.have.all.keys(["User", "UserId", "id", "name", "description"]);
+                helpers_1.expect(data).to.have.all.keys(["User", "UserId", "id", "name", "description", "latitude", "longitude"]);
             });
         });
     });

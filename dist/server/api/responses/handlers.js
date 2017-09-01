@@ -19,6 +19,7 @@ var Handlers = (function () {
         if (isMatch) {
             var payload = { id: data.id };
             res.json({
+                user: payload,
                 token: jwt.encode(payload, config.secret)
             });
         }
