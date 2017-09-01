@@ -22,7 +22,9 @@ describe("Testes de Integração", () => {
     id: 100,
     name: "NiceImage.jpg",
     description: "Nice Image",
-    UserId: defaultUser.id
+    UserId: defaultUser.id,
+    latitude: "38.7755940",
+    longitude: "-9.1353670",
   };
 
   before(done => {
@@ -79,6 +81,8 @@ describe("Testes de Integração", () => {
             "id",
             "name",
             "description",
+            "latitude",
+            "longitude",
             "UserId",
             "User"
           ]);
@@ -93,7 +97,9 @@ describe("Testes de Integração", () => {
         id: 500,
         name: "NiceImage2.jpg",
         description: "New Nice Image",
-        UserId: defaultUser.id
+        UserId: defaultUser.id,
+        latitude: "38.7755940",
+        longitude: "-9.1353670",
       };
       request(app)
         .post("/api/images/create")

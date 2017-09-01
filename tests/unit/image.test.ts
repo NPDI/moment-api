@@ -17,6 +17,8 @@ describe("Testes Unitarios do Image Service", () => {
     id: 2,
     name: "DefaultImage.jpg",
     description: "Nice Image",
+    latitude: "38.7755940",
+    longitude: "-9.1353670",
     UserId: defaultUser.id,
   };
 
@@ -48,6 +50,8 @@ describe("Testes Unitarios do Image Service", () => {
         id: 1,
         name: "file_01545456.jpg",
         description: "Hello Map",
+        latitude: "-22.260369",
+        longitude: "-45.702633",
         UserId: defaultUser.id,
       };
       return Image.create(newImage).then(data => {
@@ -55,6 +59,8 @@ describe("Testes Unitarios do Image Service", () => {
           "id",
           "name",
           "description",
+          "latitude",
+          "longitude",
           "UserId",
           "updatedAt",
           "createdAt"
@@ -67,7 +73,7 @@ describe("Testes Unitarios do Image Service", () => {
     it("Deve atualizar uma Imagem", () => {
       const updateImage = {
         name: "Update Image",
-        email: "http://updateemail.com/47"
+        description: " Updated image "
       };
       return Image.update(defaulImage.id, updateImage).then(data => {
         expect(data[0]).to.be.equal(1);
@@ -86,7 +92,7 @@ describe("Testes Unitarios do Image Service", () => {
   describe("Método getById", () => {
     it("Deve retornar uma Imagem de acordo com o ID informado", () => {
       return Image.getById(defaulImage.id).then(data => {
-        expect(data).to.have.all.keys(["User", "UserId", "id", "name", "description"]);
+        expect(data).to.have.all.keys(["User", "UserId", "id", "name", "description", "latitude", "longitude"]);
       });
     });
   });
