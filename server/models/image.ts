@@ -17,6 +17,14 @@ export default function(sequelize, DataTypes) {
     description: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    longitude: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    latitude: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 
