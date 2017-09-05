@@ -4,14 +4,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var path = require("path");
 module.exports = {
     env: 'production',
-    db: 'det4547oc9jri',
+    db: 'moment',
     dialect: 'postgres',
-    username: 'ppturztezlnzco',
-    password: '18c48962c3f36fab1c12ba5df47379b46f7cb39773694a3d97bc21ca52bc5f64',
+    username: 'postgres',
+    password: 'postgres',
     host: 'localhost',
-    serverPort: process.env.PORT,
+    serverPort: 3001,
     pgPort: 5432,
-    dbURL: 'postgres://ppturztezlnzco:18c48962c3f36fab1c12ba5df47379b46f7cb39773694a3d97bc21ca52bc5f64@ec2-107-22-171-11.compute-1.amazonaws.com:5432/det4547oc9jri',
+    dbURL: 'postgres://postgres:postgres@localhost:5432/moment',
     secret: 'S3cr3t',
     uploadPath: path.join(__dirname, '..', '..', '..', 'upload'),
 };
