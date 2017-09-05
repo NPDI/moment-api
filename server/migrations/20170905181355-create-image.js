@@ -20,6 +20,9 @@ module.exports = {
       latitude: {
         type: Sequelize.STRING
       },
+      UserId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
