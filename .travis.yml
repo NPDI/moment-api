@@ -14,7 +14,7 @@ addons:
   postgresql: '9.3'
 before_script:
 - psql -c 'create database moment_test;' -U postgres
-- npm i -g sequelize-cli gulp-cli
+- npm i -g sequelize-cli gulp-cli cross-env
 - cd server/
 - sequelize db:migrate --env test
 - npm install
