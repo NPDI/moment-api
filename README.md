@@ -1,4 +1,4 @@
-# Moment's API
+# Moment's API [![Build Status](https://travis-ci.org/NPDI/moment-api.svg?branch=master)](https://travis-ci.org/NPDI/moment-api)
 
 One Paragraph of project description goes here
 
