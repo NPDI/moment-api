@@ -36,7 +36,6 @@ npm run unit-coverage
 ## Autor
 
 * **Diego Dulval** - *Initial work* - [DiegoDulval](https://github.com/diegodulval)
-[contributors](https://github.com/your/project/contributors)
 
 ## License
 [LICENSE.md](LICENSE.md)
